@@ -1,0 +1,63 @@
+
+<h2 class="tab-Switch1">I have Chosen For : {{selektedFremWork | titlecase}} </h2>
+
+<div class="container">
+
+
+<ul class="nav nav-pills mt-5">
+    <li class="nav-item">
+        <a href="javascript:;"
+        [class.active]="selektedFremWork === 'html'"
+        class="nav-link"
+        (click)="onTabChange('html')"
+        >HTML</a>
+    </li>
+
+     <li class="nav-item">
+        <a href="javascript:;"
+        [ngClass]="{
+            active : selektedFremWork.toLowerCase().includes('css')
+        }"
+        class="nav-link" 
+                (click)="onTabChange('css')"
+        >CSS</a>
+    </li>
+
+     <li class="nav-item">
+        <a href="javascript:;"
+         [ngClass]="{
+            active : selektedFremWork.toLowerCase().includes('javascript')
+        }"
+        class="nav-link" 
+         (click)="onTabChange('javascript')"
+       
+        >JavaScript</a>
+    </li>
+
+     <li class="nav-item">
+        <a href="javascript:;"
+         [ngClass]="{
+            active : selektedFremWork.toLowerCase().includes('angular')
+        }"
+        class="nav-link" 
+          (click)="onTabChange('angular')"
+     >Angular</a>
+    </li>
+</ul>
+
+<ng-container [ngSwitch]="selektedFremWork">
+    <p *ngSwitchCase="'html' "
+      class="alert alert-warning">
+        <strong>HTML :-</strong> HTML stands for HyperText Markup Language. It is the standard language used to create and design web pages on the internet.</p>
+
+          <p *ngSwitchCase="'css'" class="alert alert-danger"> <strong>CSS :-</strong>CSS or Cascading Style Sheets is a stylesheet language used to add styles to the HTML document. It describes how HTML elements should be displayed on the web page.</p>
+
+          <p *ngSwitchCase="'javascript' "  class="alert alert-info"> <strong>JAVASCRIPT :-</strong>JavaScript is a lightweight, cross-platform, single-threaded, and interpreted compiled programming language. It is also known as the scripting language for webpages.</p>
+
+          <p *ngSwitchCase="'angular' "  class="alert alert-success"> <strong>ANGULAR :-</strong>Angular is an open-source web application framework maintained by Google and a community of developers. It is designed to build dynamic and interactive single-page applications (SPAs) efficiently. With Angular, developers can create robust, scalable, and maintainable web applications.</p>
+</ng-container>
+
+
+</div>
+
+
